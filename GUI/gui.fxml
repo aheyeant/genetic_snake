@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller" fx:id="root"
+            prefHeight="1000.0" prefWidth="1400.0" stylesheets="@gui.css">
+    <children>
+        <HBox prefWidth="1000" prefHeight="1000" AnchorPane.leftAnchor="0">
+            <Canvas fx:id="canvas" height="1000" width="1000" />
+
+
+        </HBox>
+
+        <VBox alignment="TOP_CENTER" prefWidth="400" prefHeight="1000" AnchorPane.rightAnchor="0" spacing="0">
+            <children>
+                <Slider
+                        fx:id="sld_population_count"
+                        maxWidth="300"
+                        maxHeight="20"
+                        min="10"
+                        max="1000"
+                        value="100"
+                        showTickLabels="true"
+                        minorTickCount="2"
+                        majorTickUnit="990"
+
+                />
+
+                <Label fx:id="label_sld_population_count" text="Population: 100" />
+
+                <Label minHeight="20" />
+
+                <Slider
+                        fx:id="sld_iterations_count"
+                        maxWidth="300"
+                        maxHeight="20"
+                        min="100"
+                        max="100000"
+                        value="500"
+                        showTickLabels="true"
+                        minorTickCount="2"
+                        majorTickUnit="99000"
+                />
+
+                <Label fx:id="label_sld_iterations_count" text="Iterations: 500" />
+
+                <Label minHeight="20" />
+
+                <Slider
+                        fx:id="sld_mutation_rate"
+                        maxWidth="300"
+                        maxHeight="20"
+                        min="0"
+                        max="100"
+                        value="20"
+                        showTickLabels="true"
+                        minorTickCount="2"
+                        majorTickUnit="100"
+                />
+
+                <Label fx:id="label_sld_mutation_rate" text="Mutation rate: 20%" />
+
+                <Label minHeight="20" />
+
+
+                <Slider
+                        fx:id="sld_fps"
+                        maxWidth="300"
+                        maxHeight="20"
+                        min="1"
+                        max="33"
+                        value="33"
+                        showTickLabels="true"
+                        minorTickCount="2"
+                        majorTickUnit="32"
+                />
+
+                <Label fx:id="label_sld_fps" text="FPS: 33" />
+
+                <Label minHeight="20" />
+
+                <HBox spacing="30" alignment="CENTER">
+                    <Button fx:id="btn_start" text="Start" minWidth="90" minHeight="35" onAction="#click_start" />
+                    <Button fx:id="btn_stop" text="Stop" minWidth="90" minHeight="35" onAction="#click_stop" />
+                    <Button fx:id="btn_pause" text="Pause" minWidth="90" minHeight="35" onAction="#click_pause" />
+                </HBox>
+
+                <Label minHeight="15" />
+
+                <Button fx:id="btn_visualization" text="Visualization ON" minWidth="200" minHeight="35" onAction="#click_visualization" />
+
+                <Label minHeight="20" />
+
+                <HBox spacing="50" alignment="CENTER">
+                    <children>
+                        <Label fx:id="label_map_size" text="Map size: 10 x 10" minHeight="50" />
+                        <Button fx:id="btn_resize_map" text="Resize" minHeight="30" minWidth="100" onAction="#click_resize" />
+                    </children>
+                    <padding>
+                        <Insets left="50" />
+                    </padding>
+                </HBox>
+
+                <Label minHeight="20" />
+
+                <HBox prefWidth="400">
+                    <children>
+                        <Label fx:id="label_x_axes" text="X axes    " />
+
+                        <Slider
+                                fx:id="sld_x_size"
+                                minWidth="200"
+                                maxHeight="20"
+                                min="10"
+                                max="95"
+                                value="10"
+                                showTickLabels="true"
+                                minorTickCount="2"
+                                majorTickUnit="85"
+                        />
+                    </children>
+                    <padding>
+                        <Insets left="50"/>
+                    </padding>
+                </HBox>
+
+                <Label minHeight="20" />
+
+                <HBox prefWidth="400">
+                    <children>
+                        <Label
+                                fx:id="label_y_axes"
+                                text="Y axes    "
+                        />
+
+                        <Slider
+                                fx:id="sld_y_size"
+                                minWidth="200"
+                                maxHeight="20"
+                                min="10"
+                                max="95"
+                                value="10"
+                                showTickLabels="true"
+                                minorTickCount="2"
+                                majorTickUnit="85"
+                        />
+                    </children>
+                    <padding>
+                        <Insets left="50"/>
+                    </padding>
+
+                </HBox>
+
+                <Label minHeight="20" />
+
+                <HBox prefWidth="400" spacing="20">
+                    <children>
+                        <Label text="Selection" prefWidth="110" />
+                        <Label text="Mutation" prefWidth="110" />
+                        <Label text="Crossover" prefWidth="110" />
+                    </children>
+                    <padding>
+                        <Insets left="5" />
+                    </padding>
+                </HBox>
+
+                <HBox prefWidth="400" spacing="20">
+                    <children>
+                        <ChoiceBox fx:id="selected_function" value="Roulette" onAction="#changeSelectionFunction" prefWidth="110">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value = "Roulette"/>
+                                    <String fx:value = "Tournament"/>
+                                    <String fx:value = "Bests"/>
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+
+                        <ChoiceBox fx:id="selected_mutation" value="Coin" onAction="#changeMutationFunction" prefWidth="110">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value = "Coin"/>
+                                    <String fx:value = "Chance"/>
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+
+                        <ChoiceBox fx:id="selected_crossover" value="N points" onAction="#changeCrossoverFunction" prefWidth="110">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value = "N points"/>
+                                    <String fx:value = "Uniform"/>
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                    </children>
+                    <padding>
+                        <Insets left="5" />
+                    </padding>
+                </HBox>
+
+                <Label minHeight="20" />
+
+                <HBox prefWidth="400" spacing="20">
+                    <children>
+                        <Label fx:id="label_sld_saved_percents" text="Saved: 50%" minWidth="100"/>
+                        <Slider
+                                fx:id="sld_saved_percents"
+                                minWidth="200"
+                                maxHeight="20"
+                                min="1"
+                                max="100"
+                                value="50"
+                                showTickLabels="true"
+                                minorTickCount="2"
+                                majorTickUnit="99"
+                        />
+                    </children>
+                    <padding>
+                        <Insets left="50" />
+                    </padding>
+                </HBox>
+
+
+
+
+
+
+                <Label minHeight="50" />
+
+                <Button fx:id="btn_best_phenotype_visualization" text="Phenotype visualization mode OFF" minWidth="250" minHeight="40" onAction="#click_phenotype_visualization" />
+
+                <Label minHeight="20" />
+
+                <HBox prefWidth="400" spacing="10" alignment="CENTER">
+                    <children>
+                        <Button fx:id="btn_best_phenotype_start" prefWidth="100" text="Start" visible="false" onAction="#click_phenotype_visualization_start" />
+                        <Button fx:id="btn_best_phenotype_next" prefWidth="100" text="Next" visible="false" onAction="#click_phenotype_visualization_next" />
+                        <Button fx:id="btn_best_phenotype_pause" prefWidth="100" text="Pause" visible="false" onAction="#click_phenotype_visualization_pause" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets top="30"/>
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,83 @@
+#label_map_size {
+    -fx-font-size: 15;
+}
+
+#label_x_axes {
+    -fx-font-size: 15;
+}
+
+#label_y_axes {
+    -fx-font-size: 15;
+}
+
+#label_sld_saved_percents {
+    -fx-font-size: 15;
+}
+
+#btn_resize_map {
+    -fx-background-color: rgba(65, 67, 255, 0.63);
+}
+
+#btn_resize_map:hover {
+    -fx-background-color: #4143ff;
+}
+
+#btn_start {
+    -fx-background-color: rgba(0, 164, 0, 0.74);
+}
+
+#btn_start:hover {
+    -fx-background-color: GREEN;
+}
+
+#btn_stop {
+    -fx-background-color: rgba(255, 0, 0, 0.78);
+}
+
+#btn_stop:hover {
+    -fx-background-color: RED;
+}
+
+#btn_pause {
+    -fx-background-color: rgba(255, 165, 0, 0.73);
+}
+
+#btn_pause:hover {
+    -fx-background-color: ORANGE;
+}
+
+#btn_visualization {
+    -fx-background-color: #006900;
+}
+
+#btn_best_phenotype_visualization {
+    -fx-background-color: rgba(255, 116, 0, 0.74);
+}
+
+#btn_best_phenotype_visualization:hover {
+    -fx-background-color: rgba(255, 116, 0, 0.95);
+}
+
+#btn_best_phenotype_start {
+    -fx-background-color: rgba(0, 164, 0, 0.74);;
+}
+
+#btn_best_phenotype_start:hover {
+    -fx-background-color: GREEN;
+}
+
+#btn_best_phenotype_next {
+    -fx-background-color: #4143ff;
+}
+
+#btn_best_phenotype_next:hover {
+    -fx-background-color: rgba(0, 0, 255, 0.87);
+}
+
+#btn_best_phenotype_pause {
+    -fx-background-color: rgba(255, 165, 0, 0.73)
+}
+
+#btn_best_phenotype_pause:hover {
+    -fx-background-color: ORANGE;
+}
